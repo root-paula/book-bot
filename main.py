@@ -6,15 +6,28 @@ def get_book_text(filepath: str) -> str:
         return file.read()
 
 
+def print_report(
+    book_path: str, word_count: int, char_frequencies: list[tuple[str, int]]
+) -> None:
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+    for char, frequency in char_frequencies:
+        if char.isalpha():
+            print(f"{char}: {frequency}")
+    print("============= END ===============")
+
+
 def main():
     book_filepath = "books/frankenstein.txt"
     book_text = get_book_text(book_filepath)
-    num_words = count_words(book_text)
+    word_count = count_words(book_text)
     char_counts = get_char_counts(book_text)
     char_frequencies = get_char_frequencies(char_counts)
 
-    print(f"Found {num_words} total words")
-    print(char_frequencies)
+    print_report(book_filepath, word_count, char_frequencies)
 
 
 if __name__ == "__main__":
