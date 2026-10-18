@@ -13,8 +13,5 @@ def sort_on(char_count: tuple[str, int]) -> int:
     return char_count[1]
 
 
-def chars_dict_to_sorted_list(char_counts: dict[str, int]) -> list[tuple[str, int]]:
-    chars_list: list[tuple[str, int]] = []
-    for char, count in char_counts.items():
-        chars_list.append((char, count))
-    return sorted(chars_list, reverse=True, key=sort_on)
+def get_char_frequencies(char_counts: dict[str, int]) -> list[tuple[str, int]]:
+    return sorted(char_counts.items(), reverse=True, key=sort_on)

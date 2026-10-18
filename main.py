@@ -1,4 +1,4 @@
-from stats import chars_dict_to_sorted_list, count_words, get_char_counts
+from stats import count_words, get_char_counts, get_char_frequencies
 
 
 def get_book_text(filepath: str) -> str:
@@ -11,10 +11,10 @@ def main():
     book_text = get_book_text(book_filepath)
     num_words = count_words(book_text)
     char_counts = get_char_counts(book_text)
-    sorted_chars = chars_dict_to_sorted_list(char_counts)
+    char_frequencies = get_char_frequencies(char_counts)
 
     print(f"Found {num_words} total words")
-    print(sorted_chars)
+    print(char_frequencies)
 
 
 if __name__ == "__main__":
